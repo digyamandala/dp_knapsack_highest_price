@@ -14,7 +14,7 @@ int max_price[100][100];
 
 void knapsackTable(int* weights, int*prices, int capacity, int n_things) {
   max_price[0][0] = 0;
-  
+
   for(int i = 0 ; i < 100 ; i++) {
     max_price[i][0] = 0;
   }
@@ -59,7 +59,7 @@ int main() {
   knapsackTable(weights, prices, capacity, n_things);
 
   for(int i = 0 ; i <= capacity ; i++) {
-    cout << "Max profic for bag with " << i << " kg" << ": $" << max_price[i][n_things] << endl;
+    cout << "Max profit for bag with " << i << " kg" << ": $" << max_price[i][n_things] << endl;
   }
 
   return 0;

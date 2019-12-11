@@ -3,6 +3,13 @@
 
 using namespace std;
 
+/*
+  Calculate highest profit with bag of n kg
+  using DP-knapsack
+
+  f(x,y) = max(f(x,y-1), f(x-w(y), y-1) + v(y))
+*/
+
 int max_price[100][100];
 
 void knapsackTable(int* weights, int*prices, int capacity, int n_things) {
@@ -57,6 +64,6 @@ int main() {
   for(int i = 0 ; i <= capacity ; i++) {
     cout << "Max profic for bag with " << i << " kg" << ": $" << max_price[i][n_things] << endl;
   }
-  
+
   return 0;
 }

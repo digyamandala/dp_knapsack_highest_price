@@ -13,26 +13,23 @@ using namespace std;
 int max_price[100][100];
 
 void knapsackTable(int* weights, int*prices, int capacity, int n_things) {
-
   max_price[0][0] = 0;
+  
   for(int i = 0 ; i < 100 ; i++) {
     max_price[i][0] = 0;
   }
 
   for(int x = 1 ; x <= capacity ; x++) {
     for(int k = 1 ; k <= n_things ; k++) {
-      if(x - weights[k] >= 0) {
+      if(x - weights[k] >= 0) 
         max_price[x][k] = max(max_price[x][k-1], max_price[x-weights[k]][k-1] + prices[k]);
-      }
-      else {
+      else
         max_price[x][k] = max_price[x][k-1];
-      }
     }
   }
 }
 
 int max(int a, int b) {
-
   if(a > b) return a;
   return b;
 }
